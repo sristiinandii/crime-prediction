@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Crime Rate Analysis Chart</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1>Crime Rate Analysis</h1>
+    </header>
+
+    <section>
+        <h2>Crime Rate Analysis Chart</h2>
+        <canvas id="crimeRateChart" width="400" height="200"></canvas>
+    </section>
+
+    <script>
+        fetch('/api/crime-rate-data')
+            .then(response => response.json())
+            .then(data => {
+                const ctx = document.getElementById('crimeRateChart').getContext('2d');
+
+                new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: data.cities,
+                        datasets: [{
+                            label: 'Crime Rates per City',
+                            data: data.crimeRates,
+                            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                            borderColor: 'rgba(75, 192, 192, 1)',
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
+            })
+            .catch(error => console.error('Error fetching crime rate data:', error));
+    </script>
+</body>
+
+</html>
