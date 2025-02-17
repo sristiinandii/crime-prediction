@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crime Prediction Portal - Login</title>
+    <style>
+        @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css');
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background:  url("/static/images/cram.jpg") no-repeat center center fixed;
+            background-size: cover;
+        }
+        .container {
+            width: 400px;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(15px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .container h2 {
+            margin-bottom: 30px;
+            font-size: 28px;
+            color: #333;
+            text-align: center;
+            font-weight: 600;
+        }
+        .container .input-group {
+            position: relative;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        .container .input-group input {
+            width: 100%;
+            padding: 15px 40px;
+            margin: 10px 0;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        .container .input-group i {
+            position: absolute;
+            top: 50%;
+            left: 10px;
+            transform: translateY(-50%);
+            font-size: 18px;
+            color: #666;
+        }
+        .container input:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+        .container button {
+            width: 100%;
+            padding: 15px;
+            margin: 15px 0;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            background: linear-gradient(135deg, #007bff, #00d4ff);
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.2s;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            outline: none;
+        }
+        .container button:hover {
+            transform: scale(1.05);
+        }
+        .container button:active {
+            transform: scale(0.98);
+        }
+        .container .sign-up-button {
+            background: linear-gradient(135deg, #28a745, #34d058);
+        }
+        .container .sign-up-button:hover {
+            background: linear-gradient(135deg, #218838, #28a745);
+        }
+        .container p {
+            margin-top: 20px;
+            font-size: 16px;
+            color: #666;
+        }
+        .container a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .container a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Login</h2>
+        <form action="/a_login.html" method="post">
+            <div class="input-group">
+                <i class="fas fa-envelope"></i>
+                <input type="email" id="email" name="email" placeholder="Email" required>
+            </div>
+            <div class="input-group">
+                <i class="fas fa-lock"></i>
+                <input type="password" id="password" name="password" placeholder="Password" required>
+            </div>
+            <button type="button" onclick="window.location.href='/dashboard.html'">Login</button>
+        </form>
+        <button class="sign-up-button" onclick="window.location.href='/a_signup.html'">Sign Up</button>
+        <p>Don't have an account? <a href="/a_signup.html">Sign up here</a></p>
+    </div>
+</body>
+</html>
